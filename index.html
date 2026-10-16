@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nandavelan S P S · Cloud Data Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<nav><span class="brand">Nandavelan S P S</span><a href="#stack">Skills</a><a href="#work">Projects</a><a href="#exp">Experience</a><a href="#contact">Contact</a></nav>
+
+<header class="hero">
+<div>
+<h1>I build data pipelines that start at the sensor and end in the cloud.</h1>
+<p class="lead">Final-year ECE student with a Minor in Data Science, AWS Cloud Practitioner certified. I write the embedded firmware, the Python ETL, and the ML layer on top, so I understand where data comes from before it reaches the warehouse.</p>
+<div class="btns"><a class="btn primary" href="#work">See my projects</a><a class="btn" href="mailto:nandavelansps@gmail.com">Email me</a></div>
+<div class="facts"><span><b>8.6</b>CGPA</span><span><b>5 s</b>telemetry interval</span><span><b>3</b>layers: edge, pipeline, cloud</span></div>
+</div>
+<div class="term" aria-label="Sample telemetry payload from the Smart Environmental Monitoring project">
+<div class="bar"><span><span class="dot"></span>mqtt / env-monitor / telemetry</span><span id="tick">every 5 s</span></div>
+<pre id="payload"></pre>
+</div>
+</header>
+</div>
+
+<section id="stack"><div class="wrap">
+<h2>One data path, three layers</h2>
+<p class="sub">Most data engineers start at the database. I started at the ADC pin. Here is what I use at each layer.</p>
+<div class="path">
+<div class="edge"><span class="tag">Where data is born</span><h3>Edge and embedded</h3>
+<ul class="chips"><li>Embedded C</li><li>STM32 (Cortex-M3/M4)</li><li>ESP32</li><li>FreeRTOS</li><li>ADC, I2C, SPI, UART</li><li>MQTT</li><li>Raspberry Pi + OpenCV</li><li>FPGA (Zynq-7020)</li></ul></div>
+<div class="pipe"><span class="tag">Where data is shaped</span><h3>Pipelines and data</h3>
+<ul class="chips"><li>Python</li><li>SQL, MySQL</li><li>ETL with Pandas</li><li>ER modeling</li><li>REST APIs</li><li>Streamlit</li><li>Git, Linux</li><li>PL/SQL (learning)</li></ul></div>
+<div class="cloud"><span class="tag">Where data is used</span><h3>Cloud and ML</h3>
+<ul class="chips"><li>AWS Cloud Practitioner</li><li>AWS IoT Core</li><li>Scikit-learn</li><li>LSTM forecasting</li><li>Anomaly detection</li><li>RAG, Gemini API</li><li>NumPy, Matplotlib</li><li>Azure/GCP concepts</li></ul></div>
+</div>
+</div></section>
+
+<section id="work"><div class="wrap">
+<h2>Projects</h2>
+<p class="sub">Filter by the side of the stack you want to see. Amber marks hardware, teal marks software and cloud.</p>
+<div class="tabs" role="group" aria-label="Filter projects">
+<button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="data">Cloud and data</button><button aria-pressed="false" data-f="hw">Embedded and edge</button></div>
+<div class="grid" id="projects">
+
+<article class="card feat" data-t="data hw"><h3>Smart Environmental Monitoring and Safety System</h3>
+<div class="stack">STM32 · FreeRTOS · MQTT · Mosquitto · AWS-bound telemetry · LSTM</div>
+<ul><li>Ran 5+ concurrent FreeRTOS tasks (gas detection, AQI classification, fan control, telemetry, alerts) linked by queues and semaphores, with no task starvation under full load.</li>
+<li>Read MQ2 and MQ135 sensors through a 12-bit ADC, converted to calibrated ppm, and fused them into a 4-level AQI class.</li>
+<li>Streamed JSON payloads every 5 seconds over MQTT to a live dashboard, then added LSTM forecasting and unsupervised anomaly detection to flag sensor drift.</li></ul></article>
+
+<article class="card" data-t="data"><h3>LifeLink+</h3><div class="stack">Python · AWS · Machine Learning · Streamlit</div>
+<ul><li>Resource matching platform with a cloud-hosted architecture and real-time prediction pipeline on AWS.</li><li>End-to-end workflow: preprocessing, training, prediction handling, API integration.</li></ul></article>
+
+<article class="card" data-t="data"><h3>AI-Based Dynamic Pricing Engine</h3><div class="stack">Python · Scikit-learn · REST APIs</div>
+<ul><li>Regression and forecasting on retail demand, with seasonal and lag features.</li><li>Modular REST API that automates real-time pricing workflows.</li></ul></article>
+
+<article class="card" data-t="data"><h3>Medical Record Management System</h3><div class="stack">Python · MySQL · OOP</div>
+<ul><li>ER-modeled relational schema with full CRUD and role-based access control.</li><li>Inheritance, encapsulation, and modular design for structured, secure records.</li></ul></article>
+
+<article class="card" data-t="data"><h3>PM Internship Scheme Analyser</h3><div class="stack">Python · NLP · Scikit-learn</div>
+<ul><li>Matches student profiles to government internship listings using cosine similarity on features from free text.</li><li>Deployed as a web app with ranked, real-time results.</li></ul></article>
+
+<article class="card" data-t="data"><h3>LearnOS, an AI learning companion</h3><div class="stack">React · FastAPI · MongoDB · Gemini API · RAG</div>
+<ul><li>Builds a study roadmap, tests progress with quizzes, and rebuilds the plan when it finds a weak topic.</li><li>RAG layer plus structured progress tracking drives each decision.</li></ul></article>
+
+<article class="card hw" data-t="hw"><h3>DeepSafe, FPGA edge AI safety core</h3><div class="stack">Verilog · Zynq-7020 (PYNQ-Z2) · Fixed-point MLP · AXI</div>
+<ul><li>4→8→4→2 quantized MLP accelerator for real-time hazard detection.</li><li>Owned the ARM/Python side: sensor processing, anomaly detection, decision fusion, dashboard, over an AXI register map.</li></ul></article>
+
+<article class="card hw" data-t="hw"><h3>Autonomous Guided Vehicle</h3><div class="stack">ESP32 · FreeRTOS · PID · PWM</div>
+<ul><li>Line following, obstacle avoidance, and colour-guided navigation from IR, ultrasonic, and TCS3200 sensors.</li><li>PID closed-loop control with concurrent sensing, navigation, and actuation.</li></ul></article>
+
+<article class="card hw" data-t="hw"><h3>Smart Classroom Energy Management</h3><div class="stack">STM32 · PIR · DHT11 · MQTT · FreeRTOS</div>
+<ul><li>Automates lights and PWM fan speed from occupancy, temperature, and humidity, and publishes telemetry to a cloud dashboard.</li></ul></article>
+
+<article class="card hw" data-t="hw"><h3>Automatic Pill Dispenser</h3><div class="stack">ESP32 · RTC · Servo · HTTP</div>
+<ul><li>Scheduled dispensing from a web dashboard, with buzzer reminders and an LCD status display.</li></ul></article>
+</div>
+</div></section>
+
+<section id="exp"><div class="wrap">
+<h2>Experience</h2><p class="sub">Two internships and an industrial visit, each on a different part of the data path.</p>
+<div class="tl">
+<div class="job"><div class="when">Jul 2026 to present</div><div><h3>Embedded Systems and Product Development Intern, COO24 Technologies (Coovum)</h3>
+<ul><li>Built OpenCV quality-inspection pipelines on Raspberry Pi edge devices, backed by Python APIs.</li><li>Worked across hardware and software: REST API design and on-device model deployment.</li></ul></div></div>
+<div class="job"><div class="when">Dec 2024 to Jan 2025</div><div><h3>Industrial Exposure, Chennai Port Trust</h3>
+<ul><li>Studied embedded sensors, networks, and automation in mission-critical logistics, which shaped how I design for reliability and failure.</li></ul></div></div>
+<div class="job"><div class="when">Jun to Jul 2024</div><div><h3>Python Developer Intern, VYTCDC Codenatives</h3>
+<ul><li>Built modular Pandas ETL pipelines for cleaning, transformation, and analytics, delivered with Matplotlib visuals and Git version control.</li><li>Built an ML pipeline for feature extraction and similarity scoring, served through a Streamlit dashboard.</li></ul></div></div>
+</div>
+</div></section>
+
+<section><div class="wrap two">
+<div><h3>Education</h3><ul><li><b>B.E. Electronics and Communication Engineering</b>, Saveetha Engineering College, Chennai, 2023 to 2027. Minor in Data Science. CGPA 8.6/10.</li><li>Coursework: DBMS, Data Analytics, Machine Learning, Communication Protocols.</li><li>Higher Secondary, D.A.V Boys, Chennai: 89%.</li></ul></div>
+<div><h3>Certifications and activity</h3><ul><li>AWS Cloud Practitioner</li><li>Machine Learning, Coursera (Andrew Ng)</li><li>Embedded Systems, NIELIT</li><li>Python, Machine Learning, Introduction to IoT, NPTEL</li><li>Smart India Hackathon: built Nautical Nodes (IoT sea weather monitoring) in a 36-hour sprint.</li><li>Hackathon team lead and NSS volunteer.</li></ul></div>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+<h2>Let's talk about the HCL Cloud Data Engineer role</h2>
+<p class="sub">I am looking for a team where I can grow into cloud data engineering, and I learn new platforms and PL/SQL fast.</p>
+<div class="links"><a href="mailto:nandavelansps@gmail.com">nandavelansps@gmail.com</a><a href="tel:+919840811854">+91 98408 11854</a><a href="https://linkedin.com/in/nandavelan-sps">LinkedIn</a><a href="https://github.com/NANDAVELAN">GitHub</a></div>
+<p class="small">Chennai, Tamil Nadu. English, Tamil, Hindi, basic Japanese.</p>
+</div></footer>
+
+<script src="script.js"></script>
+</body>
+</html>
